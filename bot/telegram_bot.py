@@ -1,7 +1,10 @@
 import asyncio
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import Command, CommandStart
-from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import (
+    Message, ReplyKeyboardMarkup, KeyboardButton,
+    InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+)
 from config.config import logger, configs
 from database.database import (
     add_user,
@@ -9,11 +12,23 @@ from database.database import (
     update_user_registration,
     delete_user,
     add_document_link,
-    get_document_link
+    get_document_link,
+    get_document_links,
+    delete_document_link
 )
 
+# Глобальное состояние для процесса добавления ссылок
+add_link_state = {}  # admin_id -> выбранная категория (строка)
 
-# ------------------ Главное меню ------------------
+# Отображение ключей (для команд) в название категорий
+CATEGORY_MAPPING = {
+    "schedule": "Расписание",
+    "changes": "Изменения в расписании",
+    "attendance": "Посещаемость и питание",
+    "fgis": 'ФГИС "Моя школа"'
+}
+
+# ------------------ Главное меню для обычных пользователей ------------------
 def main_menu_keyboard() -> ReplyKeyboardMarkup:
     return ReplyKeyboardMarkup(
         keyboard=[
@@ -25,20 +40,52 @@ def main_menu_keyboard() -> ReplyKeyboardMarkup:
         resize_keyboard=True
     )
 
+# ------------------ Inline-клавиатуры ------------------
+
+def registration_inline_keyboard(user_id: int) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Принять", callback_data=f"reg_accept_{user_id}"),
+            InlineKeyboardButton(text="Отклонить", callback_data=f"reg_decline_{user_id}")
+        ]
+    ])
+
+def addlink_category_keyboard() -> InlineKeyboardMarkup:
+    """Клавиатура для выбора категории добавления ссылки с кнопкой 'Применить'."""
+    buttons = []
+    for key, cat in CATEGORY_MAPPING.items():
+        buttons.append(InlineKeyboardButton(text=cat, callback_data=f"addlink_cat_{key}"))
+    buttons.append(InlineKeyboardButton(text="Применить", callback_data="addlink_apply"))
+    keyboard = InlineKeyboardMarkup(inline_keyboard=[[btn] for btn in buttons])
+    return keyboard
+
+def dellink_category_keyboard() -> InlineKeyboardMarkup:
+    """Клавиатура для выбора категории удаления ссылок."""
+    buttons = []
+    for key, cat in CATEGORY_MAPPING.items():
+        buttons.append(InlineKeyboardButton(text=cat, callback_data=f"dellink_cat_{key}"))
+    keyboard = InlineKeyboardMarkup(inline_keyboard=[[btn] for btn in buttons])
+    return keyboard
+
+def dellink_links_keyboard(links: list) -> InlineKeyboardMarkup:
+    """Создает клавиатуру, где каждая кнопка соответствует ссылке для удаления.
+    Callback data: dellink_del_<link_id>
+    """
+    keyboard_buttons = []
+    for i, link in enumerate(links, start=1):
+        button = InlineKeyboardButton(text=str(i), callback_data=f"dellink_del_{link['id']}")
+        keyboard_buttons.append([button])
+    keyboard = InlineKeyboardMarkup(inline_keyboard=keyboard_buttons)
+    return keyboard
 
 # ------------------ Проверка доступа пользователя ------------------
 def user_has_access(user_id: int) -> bool:
-    """
-    Возвращает True, если пользователь зарегистрирован в базе.
-    Администраторы всегда имеют доступ.
-    """
     if user_id in configs["ADMIN_IDS"]:
         return True
     user = get_user(user_id)
     if user and user["is_registered"] == 1:
         return True
     return False
-
 
 # ------------------ Обработчик команды /start ------------------
 async def cmd_start(message: Message, bot: Bot):
@@ -49,182 +96,219 @@ async def cmd_start(message: Message, bot: Bot):
         if user["is_registered"] == 1 or user_id in configs["ADMIN_IDS"]:
             await message.answer("Привет! Выберите действие:", reply_markup=main_menu_keyboard())
         else:
-            await message.answer("Ваша заявка на регистрацию уже отправлена. Ожидайте подтверждения администратора.")
+            await message.answer("Ваша заявка на регистрацию отправлена. Ожидайте подтверждения администратора.")
     else:
-        # Создаем новую запись пользователя с is_registered = 0 (не подтвержден)
         username = message.from_user.username or ""
         add_user(user_id, username, is_registered=False)
         await message.answer("Ваша заявка на регистрацию отправлена. Ожидайте подтверждения администратора.")
-
-        # Уведомление администратора
         admin_info = f"(@{username})" if username else "без username"
         for admin_id in configs["ADMIN_IDS"]:
+            inline_kb = registration_inline_keyboard(user_id)
             await bot.send_message(
                 admin_id,
-                f"Попытка регистрации: {admin_info} (ID: {user_id}).\n"
-                f"Для одобрения введите: /approve {user_id}\n"
-                f"Для отклонения введите: /deny {user_id}"
+                f"Новый запрос на регистрацию: {admin_info} (ID: {user_id}).",
+                reply_markup=inline_kb
             )
         logger.info(f"User {user_id} {admin_info} sent a registration request.")
 
+# ------------------ Callback для подтверждения регистрации ------------------
+async def registration_callback_handler(callback: CallbackQuery):
+    data = callback.data
+    if data.startswith("reg_accept_"):
+        try:
+            target_id = int(data.replace("reg_accept_", ""))
+        except ValueError:
+            await callback.answer("Ошибка данных.", show_alert=True)
+            return
+        update_user_registration(target_id, True)
+        await callback.message.edit_reply_markup(reply_markup=None)
+        await callback.answer("Пользователь одобрен.")
+        try:
+            await callback.bot.send_message(target_id, "Ваша регистрация одобрена! Теперь вы можете пользоваться ботом.")
+        except Exception as e:
+            logger.warning(f"Could not notify user {target_id}: {e}")
+        logger.info(f"User {target_id} approved via inline button.")
+    elif data.startswith("reg_decline_"):
+        try:
+            target_id = int(data.replace("reg_decline_", ""))
+        except ValueError:
+            await callback.answer("Ошибка данных.", show_alert=True)
+            return
+        delete_user(target_id)
+        await callback.message.edit_reply_markup(reply_markup=None)
+        await callback.answer("Пользователь отклонён.")
+        try:
+            await callback.bot.send_message(target_id, "Ваша регистрация отклонена. Обратитесь к администратору.")
+        except Exception as e:
+            logger.warning(f"Could not notify user {target_id}: {e}")
+        logger.info(f"User {target_id} declined via inline button.")
 
-# ------------------ Обработчики запросов ссылок на документы ------------------
-async def schedule_handler(message: Message):
+# ------------------ Логика добавления ссылок ------------------
+async def addlink_command(message: Message):
     user_id = message.from_user.id
-    if user_has_access(user_id):
-        url = get_document_link("Расписание")
-        if url:
-            await message.answer(f"Вот ссылка на расписание: {url}")
-        else:
-            await message.answer("Ссылка на расписание не задана.")
-        logger.info(f"User {user_id} received the schedule link.")
-    else:
-        await message.answer("Вы не зарегистрированы. Обратитесь к администратору.")
+    if user_id not in configs["ADMIN_IDS"]:
+        await message.answer("У вас нет прав для выполнения этой команды.")
+        return
+    add_link_state[user_id] = None
+    await message.answer("Выберите категорию для добавления ссылки:", reply_markup=addlink_category_keyboard())
 
+async def addlink_callback_handler(callback: CallbackQuery):
+    data = callback.data
+    admin_id = callback.from_user.id
+    if data.startswith("addlink_cat_"):
+        key = data.replace("addlink_cat_", "")
+        if key not in CATEGORY_MAPPING:
+            await callback.answer("Неверная категория.", show_alert=True)
+            return
+        category = CATEGORY_MAPPING[key]
+        add_link_state[admin_id] = category
+        await callback.answer(f"Выбрана категория: {category}", show_alert=True)
+        await callback.bot.send_message(admin_id, f"Пришлите ссылку для категории '{category}', или нажмите 'Применить' для завершения.")
+    elif data == "addlink_apply":
+        if admin_id in add_link_state:
+            del add_link_state[admin_id]
+        await callback.answer("Добавление ссылок завершено.", show_alert=True)
+        await callback.message.edit_reply_markup(reply_markup=None)
+
+async def addlink_text_handler(message: Message):
+    admin_id = message.from_user.id
+    logger.info(f"Received addlink text from {admin_id}: {message.text}")
+    if admin_id in add_link_state and add_link_state[admin_id]:
+        category = add_link_state[admin_id]
+        url = message.text.strip()
+        add_document_link(category, url, description=None)
+        await message.answer(f"Ссылка для категории '{category}' добавлена.\nПришлите следующую ссылку или нажмите 'Применить' для завершения.")
+        logger.info(f"Admin {admin_id} added link for category '{category}': {url}")
+    else:
+        logger.info(f"Admin {admin_id} attempted to add link, but no category selected.")
+# ------------------ Логика удаления ссылок ------------------
+async def dellink_command(message: Message, bot: Bot):
+    user_id = message.from_user.id
+    if user_id not in configs["ADMIN_IDS"]:
+        await message.answer("У вас нет прав для выполнения этой команды.")
+        return
+    await message.answer("Выберите категорию для удаления ссылок:", reply_markup=dellink_category_keyboard())
+
+async def dellink_callback_handler(callback: CallbackQuery):
+    data = callback.data
+    admin_id = callback.from_user.id
+    if data.startswith("dellink_cat_"):
+        key = data.replace("dellink_cat_", "")
+        if key not in CATEGORY_MAPPING:
+            await callback.answer("Неверная категория.", show_alert=True)
+            return
+        category = CATEGORY_MAPPING[key]
+        links = get_document_links(category)
+        if not links:
+            await callback.answer(f"В категории '{category}' нет ссылок.", show_alert=True)
+            return
+        text = f"Ссылки для категории '{category}':\n"
+        for i, link in enumerate(links, start=1):
+            text += f"{i}. {link['url']}\n"
+        keyboard = dellink_links_keyboard(links)
+        await callback.message.edit_text(text, reply_markup=keyboard)
+        await callback.answer()
+    elif data.startswith("dellink_del_"):
+        try:
+            link_id = int(data.replace("dellink_del_", ""))
+        except ValueError:
+            await callback.answer("Ошибка данных.", show_alert=True)
+            return
+        delete_document_link(link_id)
+        await callback.answer("Ссылка удалена.")
+        await callback.message.delete()
+        await callback.bot.send_message(admin_id, "Ссылка удалена. Для удаления других ссылок снова выберите категорию.")
+
+# ------------------ Обработчик запроса ссылок пользователем ------------------
+async def send_document_links(message: Message, doc_name: str):
+    """
+    Вспомогательная функция для отправки ссылок по заданной категории.
+    """
+    user_id = message.from_user.id
+    if not user_has_access(user_id):
+        await message.answer("Вы не зарегистрированы. Обратитесь к администратору.")
+        return
+    links = get_document_links(doc_name)
+    if links:
+        text = f"Ссылки для \"{doc_name}\":\n"
+        for link in links:
+            text += f"- {link['url']}\n"
+        await message.answer(text)
+    else:
+        await message.answer(f"Документы с именем \"{doc_name}\" не найдены.")
+    logger.info(f"User {user_id} requested document links for '{doc_name}'.")
+
+async def schedule_handler(message: Message):
+    await send_document_links(message, "Расписание")
 
 async def changes_handler(message: Message):
-    user_id = message.from_user.id
-    if user_has_access(user_id):
-        url = get_document_link("Изменения в расписании")
-        if url:
-            await message.answer(f"Вот ссылка на изменения в расписании: {url}")
-        else:
-            await message.answer("Ссылка на изменения в расписании не задана.")
-        logger.info(f"User {user_id} received the changes link.")
-    else:
-        await message.answer("Вы не зарегистрированы. Обратитесь к администратору.")
-
+    await send_document_links(message, "Изменения в расписании")
 
 async def attendance_handler(message: Message):
-    user_id = message.from_user.id
-    if user_has_access(user_id):
-        url = get_document_link("Посещаемость и питание")
-        if url:
-            await message.answer(f"Вот ссылка на посещаемость и питание: {url}")
-        else:
-            await message.answer("Ссылка на посещаемость и питание не задана.")
-        logger.info(f"User {user_id} received the attendance & meals link.")
-    else:
-        await message.answer("Вы не зарегистрированы. Обратитесь к администратору.")
-
+    await send_document_links(message, "Посещаемость и питание")
 
 async def fgis_handler(message: Message):
-    user_id = message.from_user.id
-    if user_has_access(user_id):
-        url = get_document_link('ФГИС "Моя школа"')
-        if url:
-            await message.answer(f"Вот ссылка на ФГИС 'Моя школа': {url}")
-        else:
-            await message.answer("Ссылка на ФГИС 'Моя школа' не задана.")
-        logger.info(f"User {user_id} received the FGIS link.")
-    else:
-        await message.answer("Вы не зарегистрированы. Обратитесь к администратору.")
+    await send_document_links(message, 'ФГИС "Моя школа"')
 
-
-# ------------------ Админ-команды ------------------
-async def approve_command(message: Message, bot: Bot):
-    user_id = message.from_user.id
-    if user_id not in configs["ADMIN_IDS"]:
+# ------------------ Команды для подтверждения/отклонения регистрации ------------------
+async def approve_command(message: Message):
+    admin_id = message.from_user.id
+    if admin_id not in configs["ADMIN_IDS"]:
         await message.answer("У вас нет прав для выполнения этой команды.")
         return
     parts = message.text.split()
-    if len(parts) != 2 or not parts[1].isdigit():
-        await message.answer("Используйте формат: /approve <user_id>")
+    if len(parts) != 2:
+        await message.answer("Используйте: /approve <user_id>")
         return
-    target_id = int(parts[1])
-    user = get_user(target_id)
-    if user:
-        update_user_registration(target_id, True)
-        await message.answer(f"Пользователь {target_id} одобрен.")
-        await bot.send_message(target_id, "Ваша регистрация одобрена! Теперь вы можете пользоваться ботом.")
-        logger.info(f"Admin {user_id} approved user {target_id}.")
-    else:
-        # Если пользователя нет, создаем его с подтвержденным статусом
-        add_user(target_id, "", is_registered=True)
-        await message.answer(f"Пользователь {target_id} создан и одобрен.")
-        try:
-            await bot.send_message(target_id, "Ваша регистрация одобрена! Теперь вы можете пользоваться ботом.")
-        except Exception as e:
-            logger.warning(f"Could not send message to user {target_id}: {e}")
-        logger.info(f"Admin {user_id} created and approved user {target_id}.")
+    try:
+        target_id = int(parts[1])
+    except ValueError:
+        await message.answer("Неверный ID пользователя.")
+        return
+    update_user_registration(target_id, True)
+    await message.answer(f"Пользователь {target_id} одобрен.")
+    try:
+        await message.bot.send_message(target_id, "Ваша регистрация одобрена! Теперь вы можете пользоваться ботом.")
+    except Exception as e:
+        logger.warning(f"Could not notify user {target_id}: {e}")
 
-
-async def deny_command(message: Message, bot: Bot):
-    user_id = message.from_user.id
-    if user_id not in configs["ADMIN_IDS"]:
+async def deny_command(message: Message):
+    admin_id = message.from_user.id
+    if admin_id not in configs["ADMIN_IDS"]:
         await message.answer("У вас нет прав для выполнения этой команды.")
         return
     parts = message.text.split()
-    if len(parts) != 2 or not parts[1].isdigit():
-        await message.answer("Используйте формат: /deny <user_id>")
+    if len(parts) != 2:
+        await message.answer("Используйте: /deny <user_id>")
         return
-    target_id = int(parts[1])
-    user = get_user(target_id)
-    if user:
-        delete_user(target_id)
-        await message.answer(f"Пользователь {target_id} отклонён.")
-        try:
-            await bot.send_message(target_id, "Ваша регистрация отклонена. Обратитесь к администратору.")
-        except Exception as e:
-            logger.warning(f"Could not send message to user {target_id}: {e}")
-        logger.info(f"Admin {user_id} denied user {target_id}.")
-    else:
-        await message.answer(f"Пользователь {target_id} не найден.")
-
-
-# ------------------ Команда для установки ссылки на документ ------------------
-async def set_link_command(message: Message, bot: Bot):
-    """
-    Команда для изменения ссылки на документ.
-    Используйте формат:
-    /setlink <doc_key> <ссылка> [описание]
-
-    Допустимые значения doc_key:
-      - schedule     – Расписание
-      - changes      – Изменения в расписании
-      - attendance   – Посещаемость и питание
-      - fgis         – ФГИС "Моя школа"
-    """
-    user_id = message.from_user.id
-    if user_id not in configs["ADMIN_IDS"]:
-        await message.answer("У вас нет прав для выполнения этой команды.")
+    try:
+        target_id = int(parts[1])
+    except ValueError:
+        await message.answer("Неверный ID пользователя.")
         return
-    parts = message.text.split(maxsplit=3)
-    if len(parts) < 3:
-        await message.answer("Используйте формат: /setlink <doc_key> <ссылка> [описание]")
-        return
-    doc_key = parts[1].lower()
-    url = parts[2]
-    description = parts[3] if len(parts) == 4 else None
-    allowed_keys = {
-        "schedule": "Расписание",
-        "changes": "Изменения в расписании",
-        "attendance": "Посещаемость и питание",
-        "fgis": 'ФГИС "Моя школа"'
-    }
-    if doc_key not in allowed_keys:
-        await message.answer("Неверный ключ документа. Доступные ключи: schedule, changes, attendance, fgis")
-        return
-    doc_name = allowed_keys[doc_key]
-    add_document_link(doc_name, url, description)
-    await message.answer(f"Ссылка для '{doc_name}' обновлена.")
-    logger.info(f"Admin {user_id} updated document link for '{doc_name}' to {url}.")
+    delete_user(target_id)
+    await message.answer(f"Пользователь {target_id} отклонён.")
+    try:
+        await message.bot.send_message(target_id, "Ваша регистрация отклонена. Обратитесь к администратору.")
+    except Exception as e:
+        logger.warning(f"Could not notify user {target_id}: {e}")
 
-
-# ------------------ Обработчик запроса документа ------------------
+# ------------------ Обработчик запроса ссылок для любых других документов ------------------
 async def document_link_handler(message: Message):
     user_id = message.from_user.id
     if not user_has_access(user_id):
         await message.answer("Вы не зарегистрированы. Обратитесь к администратору.")
         return
     doc_name = message.text.strip()
-    url = get_document_link(doc_name)
-    if url:
-        await message.answer(f"Вот ссылка для \"{doc_name}\": {url}")
+    links = get_document_links(doc_name)
+    if links:
+        text = f"Ссылки для \"{doc_name}\":\n"
+        for link in links:
+            text += f"- {link['url']}\n"
+        await message.answer(text)
     else:
-        await message.answer(f"Документ с именем \"{doc_name}\" не найден.")
-    logger.info(f"User {user_id} requested document link for '{doc_name}'.")
-
+        await message.answer(f"Документы с именем \"{doc_name}\" не найдены.")
+    logger.info(f"User {user_id} requested document links for '{doc_name}'.")
 
 # ------------------ Регистрация обработчиков ------------------
 bot = Bot(token=configs["BOT_TOKEN"])
@@ -237,10 +321,19 @@ dp.message.register(attendance_handler, F.text("Посещаемость и пи
 dp.message.register(fgis_handler, F.text('ФГИС "Моя школа"'))
 dp.message.register(approve_command, Command("approve"))
 dp.message.register(deny_command, Command("deny"))
-dp.message.register(set_link_command, Command("setlink"))
-# Регистрируем catch-all обработчик для запроса документов, исключая фиксированные тексты кнопок:
-dp.message.register(
-    document_link_handler,
-    F.text().exclude(
-        lambda text: text in ["Расписание", "Изменения в расписании", "Посещаемость и питание", 'ФГИС "Моя школа"'])
+dp.message.register(addlink_command, Command("addlink"))
+dp.message.register(dellink_command, Command("dellink"))
+dp.callback_query.register(
+    registration_callback_handler,
+    F.data.startswith("reg_accept_") | F.data.startswith("reg_decline_")
 )
+dp.callback_query.register(
+    addlink_callback_handler,
+    F.data.startswith("addlink_")
+)
+dp.callback_query.register(
+    dellink_callback_handler,
+    F.data.startswith("dellink_")
+)
+dp.message.register(addlink_text_handler, F.text().filter(lambda message: message.from_user.id in add_link_state))
+dp.message.register(document_link_handler, F.text().exclude(lambda text: text in ["Расписание", "Изменения в расписании", "Посещаемость и питание", 'ФГИС "Моя школа"']))

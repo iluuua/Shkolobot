@@ -1,8 +1,8 @@
 import sqlite3
 from datetime import datetime
+from config.config import logger
 
 DATABASE_FILE = "database/db.sqlite"
-
 
 def get_connection():
     """Возвращает подключение к базе данных с использованием sqlite3."""
@@ -10,7 +10,6 @@ def get_connection():
     # Настраиваем вывод строк как словари для удобства доступа по именам столбцов
     conn.row_factory = sqlite3.Row
     return conn
-
 
 def init_db():
     """Создает таблицы в базе данных, если они ещё не существуют."""
@@ -38,11 +37,11 @@ def init_db():
         )
     ''')
 
-    # Таблица ссылок на документы
+    # Таблица ссылок на документы (без ограничения UNIQUE для возможности множественных записей)
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS document_links (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT UNIQUE NOT NULL,
+            name TEXT NOT NULL,
             url TEXT NOT NULL,
             description TEXT
         )
@@ -50,7 +49,6 @@ def init_db():
 
     conn.commit()
     conn.close()
-
 
 # ------------------ Функции для работы с пользователями ------------------
 
@@ -72,7 +70,6 @@ def add_user(telegram_id: int, username: str, is_registered: bool = False):
         pass
     conn.close()
 
-
 def get_user(telegram_id: int):
     """Возвращает данные пользователя по telegram_id или None, если пользователь не найден."""
     conn = get_connection()
@@ -81,7 +78,6 @@ def get_user(telegram_id: int):
     row = cursor.fetchone()
     conn.close()
     return row
-
 
 def update_user_registration(telegram_id: int, is_registered: bool):
     """Обновляет статус регистрации пользователя."""
@@ -94,7 +90,6 @@ def update_user_registration(telegram_id: int, is_registered: bool):
     conn.commit()
     conn.close()
 
-
 def delete_user(telegram_id: int):
     """Удаляет пользователя из базы данных."""
     conn = get_connection()
@@ -103,27 +98,31 @@ def delete_user(telegram_id: int):
     conn.commit()
     conn.close()
 
-
 # ------------------ Функции для работы с документами ------------------
 
 def add_document_link(name: str, url: str, description: str = None):
     """
-    Добавляет новую ссылку на документ в базу или обновляет существующую по имени.
+    Добавляет новую ссылку на документ в базу.
+    Для возможности добавления нескольких ссылок для одной категории всегда выполняется INSERT.
     """
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute('SELECT id FROM document_links WHERE name = ?', (name,))
-    row = cursor.fetchone()
-    if row:
-        cursor.execute(
-            'UPDATE document_links SET url = ?, description = ? WHERE name = ?',
-            (url, description, name)
-        )
-    else:
-        cursor.execute(
-            'INSERT INTO document_links (name, url, description) VALUES (?, ?, ?)',
-            (name, url, description)
-        )
+    cursor.execute(
+        'INSERT INTO document_links (name, url, description) VALUES (?, ?, ?)',
+        (name, url, description)
+    )
+    logger.info("added")
+    conn.commit()
+    conn.close()
+
+
+def delete_document_link(link_id: int):
+    """
+    Удаляет ссылку на документ по её id.
+    """
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM document_links WHERE id = ?', (link_id,))
     conn.commit()
     conn.close()
 
@@ -142,6 +141,16 @@ def get_document_link(name: str):
         return row["url"]
     return None
 
+def get_document_links(name: str):
+    """
+    Возвращает список ссылок для заданной категории (имени).
+    """
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM document_links WHERE name = ?', (name,))
+    rows = cursor.fetchall()
+    conn.close()
+    return rows
 
 # ------------------ Функции для работы с администраторами ------------------
 

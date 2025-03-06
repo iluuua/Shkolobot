@@ -1,18 +1,26 @@
-2025-03-06 02:25:28,167 - config.config - INFO - Bot is starting...
-2025-03-06 02:25:28,167 - aiogram.dispatcher - INFO - Start polling
-2025-03-06 02:25:28,474 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ЎколоЅот'
-2025-03-06 02:25:33,276 - config.config - INFO - User 1011141225 called /start
-2025-03-06 02:25:33,495 - aiogram.event - INFO - Update id=205670848 is handled. Duration 219 ms by bot id=7754142889
-2025-03-06 02:25:40,503 - aiogram.event - INFO - Update id=205670849 is not handled. Duration 0 ms by bot id=7754142889
-2025-03-06 02:25:50,659 - aiogram.event - INFO - Update id=205670850 is not handled. Duration 0 ms by bot id=7754142889
-2025-03-06 02:26:29,200 - aiogram.event - INFO - Update id=205670851 is handled. Duration 125 ms by bot id=7754142889
-2025-03-06 02:31:34,393 - config.config - INFO - Admin 1011141225 updated document link for '–асписание' to https://docs.google.com/spreadsheets/d/1cKM5h70pqYvN-SCD6TXkcIVuY-nB82F7/edit?gid=82581363#gid=82581363.
-2025-03-06 02:31:34,393 - aiogram.event - INFO - Update id=205670852 is handled. Duration 92 ms by bot id=7754142889
-2025-03-06 02:31:48,640 - aiogram.event - INFO - Update id=205670853 is not handled. Duration 0 ms by bot id=7754142889
-2025-03-06 02:31:56,145 - aiogram.event - INFO - Update id=205670854 is not handled. Duration 0 ms by bot id=7754142889
-2025-03-06 02:31:56,880 - aiogram.event - INFO - Update id=205670855 is not handled. Duration 0 ms by bot id=7754142889
-2025-03-06 02:31:57,995 - aiogram.event - INFO - Update id=205670856 is not handled. Duration 0 ms by bot id=7754142889
-2025-03-06 02:31:58,832 - aiogram.event - INFO - Update id=205670857 is not handled. Duration 0 ms by bot id=7754142889
-2025-03-06 02:34:33,912 - aiogram.event - INFO - Update id=205670858 is handled. Duration 94 ms by bot id=7754142889
-2025-03-06 02:50:46,341 - aiogram.dispatcher - INFO - Polling stopped
-2025-03-06 02:50:46,596 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ЎколоЅот'
+2025-03-06 05:25:25,589 - config.config - INFO - Bot is starting...
+2025-03-06 05:25:25,589 - aiogram.dispatcher - INFO - Start polling
+2025-03-06 05:25:25,802 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ЎколоЅот'
+2025-03-06 05:25:26,123 - aiogram.event - INFO - Update id=205670942 is handled. Duration 219 ms by bot id=7754142889
+2025-03-06 05:25:26,130 - aiogram.event - INFO - Update id=205670943 is handled. Duration 235 ms by bot id=7754142889
+2025-03-06 05:25:28,078 - aiogram.event - INFO - Update id=205670944 is handled. Duration 187 ms by bot id=7754142889
+2025-03-06 05:25:35,874 - aiogram.event - INFO - Update id=205670945 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-06 05:25:44,861 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-06 05:25:45,117 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ЎколоЅот'
+2025-03-06 22:23:05,038 - config.config - INFO - Bot is starting...
+2025-03-06 22:23:05,038 - aiogram.dispatcher - INFO - Start polling
+2025-03-06 22:23:05,265 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ЎколоЅот'
+2025-03-06 22:23:08,706 - config.config - INFO - User 1011141225 called /start
+2025-03-06 22:23:08,999 - aiogram.event - INFO - Update id=205670946 is handled. Duration 281 ms by bot id=7754142889
+2025-03-06 22:23:10,760 - aiogram.event - INFO - Update id=205670947 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-06 22:24:19,370 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-06 22:24:19,631 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ЎколоЅот'
+2025-03-06 22:25:02,841 - config.config - INFO - Bot is starting...
+2025-03-06 22:25:02,842 - aiogram.dispatcher - INFO - Start polling
+2025-03-06 22:25:03,075 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ЎколоЅот'
+2025-03-06 22:25:03,156 - aiogram.event - INFO - Update id=205670948 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-06 22:25:06,341 - aiogram.event - INFO - Update id=205670949 is handled. Duration 233 ms by bot id=7754142889
+2025-03-06 22:25:08,742 - aiogram.event - INFO - Update id=205670950 is handled. Duration 187 ms by bot id=7754142889
+2025-03-06 22:25:12,949 - aiogram.event - INFO - Update id=205670951 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-06 22:25:55,983 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-06 22:25:56,235 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ЎколоЅот'
