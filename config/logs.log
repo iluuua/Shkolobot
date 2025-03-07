@@ -24,3 +24,396 @@
 2025-03-06 22:25:12,949 - aiogram.event - INFO - Update id=205670951 is not handled. Duration 0 ms by bot id=7754142889
 2025-03-06 22:25:55,983 - aiogram.dispatcher - INFO - Polling stopped
 2025-03-06 22:25:56,235 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 16:50:59,941 - config.config - INFO - Bot is starting...
+2025-03-07 16:50:59,941 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 16:51:00,170 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 16:51:00,251 - aiogram.event - INFO - Update id=205670953 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 16:51:03,997 - aiogram.event - INFO - Update id=205670954 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 16:51:06,813 - config.config - INFO - User 1011141225 called /start
+2025-03-07 16:51:07,153 - aiogram.event - INFO - Update id=205670955 is handled. Duration 343 ms by bot id=7754142889
+2025-03-07 16:51:08,285 - aiogram.event - INFO - Update id=205670956 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 16:51:10,141 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 16:51:10,400 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 16:51:18,972 - config.config - INFO - Bot is starting...
+2025-03-07 16:51:18,973 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 16:51:19,204 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 16:51:19,335 - aiogram.event - INFO - Update id=205670957 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 16:51:19,522 - config.config - INFO - User 1011141225 called /start
+2025-03-07 16:51:19,910 - aiogram.event - INFO - Update id=205670958 is handled. Duration 391 ms by bot id=7754142889
+2025-03-07 16:51:21,073 - aiogram.event - INFO - Update id=205670959 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 16:51:27,515 - aiogram.event - INFO - Update id=205670960 is handled. Duration 125 ms by bot id=7754142889
+2025-03-07 16:51:29,325 - aiogram.event - INFO - Update id=205670961 is handled. Duration 438 ms by bot id=7754142889
+2025-03-07 16:52:01,128 - aiogram.event - INFO - Update id=205670962 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 16:52:04,909 - aiogram.event - INFO - Update id=205670963 is handled. Duration 266 ms by bot id=7754142889
+2025-03-07 16:52:35,622 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 16:52:35,885 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 16:53:20,326 - config.config - INFO - Bot is starting...
+2025-03-07 16:53:20,326 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 16:53:20,581 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 16:53:21,099 - aiogram.event - INFO - Update id=205670964 is handled. Duration 344 ms by bot id=7754142889
+2025-03-07 16:53:23,091 - aiogram.event - INFO - Update id=205670965 is handled. Duration 297 ms by bot id=7754142889
+2025-03-07 16:53:24,436 - aiogram.event - INFO - Update id=205670966 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 16:53:26,129 - aiogram.event - INFO - Update id=205670967 is handled. Duration 217 ms by bot id=7754142889
+2025-03-07 16:53:31,290 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 16:53:31,561 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 16:54:05,314 - config.config - INFO - Bot is starting...
+2025-03-07 16:54:05,314 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 16:54:05,542 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 16:54:06,291 - aiogram.event - INFO - Update id=205670968 is handled. Duration 327 ms by bot id=7754142889
+2025-03-07 16:54:06,605 - aiogram.event - INFO - Update id=205670969 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 16:54:08,462 - aiogram.event - INFO - Update id=205670970 is handled. Duration 328 ms by bot id=7754142889
+2025-03-07 16:54:10,540 - aiogram.event - INFO - Update id=205670971 is not handled. Duration 15 ms by bot id=7754142889
+2025-03-07 16:54:41,725 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 16:54:41,984 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 17:21:34,164 - config.config - INFO - Bot is starting...
+2025-03-07 17:21:34,164 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 17:21:34,371 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 17:23:41,671 - aiogram.event - INFO - Update id=205670979 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 17:23:56,818 - aiogram.event - INFO - Update id=205670980 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 17:24:00,382 - aiogram.event - INFO - Update id=205670981 is handled. Duration 266 ms by bot id=7754142889
+2025-03-07 17:24:02,075 - aiogram.event - INFO - Update id=205670982 is handled. Duration 172 ms by bot id=7754142889
+2025-03-07 17:24:22,337 - config.config - INFO - addlink_text_handler: Received text from 1011141225: https://vk.com/away.php?to=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1ZwMNV3X_Kb0BjO-hQui0j5R8mnz5PYkK%2Fedit%3Fusp%3Ddrive_link%26ouid%3D114345245609550489176%26rtpof%3Dtrue%26sd%3Dtrue&utf=1
+2025-03-07 17:24:22,338 - config.config - INFO - added
+2025-03-07 17:24:22,535 - config.config - INFO - Admin 1011141225 added link for category 'Изменения в расписании': https://vk.com/away.php?to=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1ZwMNV3X_Kb0BjO-hQui0j5R8mnz5PYkK%2Fedit%3Fusp%3Ddrive_link%26ouid%3D114345245609550489176%26rtpof%3Dtrue%26sd%3Dtrue&utf=1
+2025-03-07 17:24:22,535 - aiogram.event - INFO - Update id=205670983 is handled. Duration 187 ms by bot id=7754142889
+2025-03-07 17:24:25,065 - aiogram.event - INFO - Update id=205670984 is handled. Duration 233 ms by bot id=7754142889
+2025-03-07 17:24:29,073 - aiogram.event - INFO - Update id=205670985 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 17:24:50,655 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 17:24:50,922 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 17:24:53,434 - config.config - INFO - Bot is starting...
+2025-03-07 17:24:53,435 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 17:24:53,647 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 17:26:24,702 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 17:26:24,964 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 17:59:19,389 - config.config - INFO - Bot is starting...
+2025-03-07 17:59:19,390 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 17:59:19,655 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 17:59:24,139 - aiogram.event - INFO - Update id=205670986 is not handled. Duration 16 ms by bot id=7754142889
+2025-03-07 17:59:27,662 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 17:59:27,927 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 17:59:59,869 - config.config - INFO - Bot is starting...
+2025-03-07 17:59:59,869 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 18:00:00,089 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 18:01:16,983 - config.config - INFO - User 5586764924 called /start
+2025-03-07 18:01:17,214 - aiogram.event - INFO - Update id=205670987 is handled. Duration 233 ms by bot id=7754142889
+2025-03-07 18:01:21,875 - aiogram.event - INFO - Update id=205670988 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:01:29,194 - config.config - INFO - User 5586764924 called /start
+2025-03-07 18:01:29,291 - aiogram.event - INFO - Update id=205670989 is handled. Duration 108 ms by bot id=7754142889
+2025-03-07 18:01:32,742 - aiogram.event - INFO - Update id=205670990 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:01:33,083 - aiogram.event - INFO - Update id=205670991 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:01:33,347 - aiogram.event - INFO - Update id=205670992 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:01:33,589 - aiogram.event - INFO - Update id=205670993 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:01:52,274 - aiogram.event - INFO - Update id=205670994 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:01:53,379 - aiogram.event - INFO - Update id=205670995 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:01:53,704 - aiogram.event - INFO - Update id=205670996 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:01:59,335 - config.config - INFO - User 5586764924 called /start
+2025-03-07 18:01:59,639 - aiogram.event - INFO - Update id=205670997 is not handled. Duration 313 ms by bot id=7754142889
+2025-03-07 18:01:59,639 - aiogram.event - ERROR - Cause exception while process update id=205670997 by bot id=7754142889
+TelegramBadRequest: Telegram server says - Bad Request: chat not found
+Traceback (most recent call last):
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\Shkolobot\bot\telegram_bot.py", line 107, in cmd_start
+    await bot.send_message(
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 2972, in send_message
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 498, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: chat not found
+2025-03-07 18:02:01,459 - config.config - INFO - User 5586764924 approved via inline button.
+2025-03-07 18:02:01,459 - aiogram.event - INFO - Update id=205670998 is handled. Duration 297 ms by bot id=7754142889
+2025-03-07 18:02:04,916 - aiogram.event - INFO - Update id=205670999 is not handled. Duration 16 ms by bot id=7754142889
+2025-03-07 18:02:05,315 - aiogram.event - INFO - Update id=205671000 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:02:05,767 - aiogram.event - INFO - Update id=205671001 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:02:22,791 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 18:02:23,049 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 18:05:59,038 - config.config - INFO - Bot is starting...
+2025-03-07 18:05:59,039 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 18:05:59,256 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 18:05:59,337 - aiogram.event - INFO - Update id=205671002 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:06:09,661 - aiogram.event - INFO - Update id=205671003 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:06:10,644 - aiogram.event - INFO - Update id=205671004 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:06:10,866 - aiogram.event - INFO - Update id=205671005 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:09:33,462 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 18:09:33,728 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 18:11:16,753 - config.config - INFO - Bot is starting...
+2025-03-07 18:11:16,753 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 18:11:16,970 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 18:11:17,959 - aiogram.event - INFO - Update id=205671006 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:11:18,981 - aiogram.event - INFO - Update id=205671007 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:11:19,253 - aiogram.event - INFO - Update id=205671008 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:11:20,368 - aiogram.event - INFO - Update id=205671009 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:11:23,800 - aiogram.event - INFO - Update id=205671010 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:13:15,303 - aiogram.event - INFO - Update id=205671011 is handled. Duration 266 ms by bot id=7754142889
+2025-03-07 18:13:17,003 - aiogram.event - INFO - Update id=205671012 is handled. Duration 219 ms by bot id=7754142889
+2025-03-07 18:13:18,535 - aiogram.event - INFO - Update id=205671013 is handled. Duration 358 ms by bot id=7754142889
+2025-03-07 18:13:34,120 - aiogram.event - INFO - Update id=205671014 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:13:36,656 - aiogram.event - INFO - Update id=205671015 is handled. Duration 94 ms by bot id=7754142889
+2025-03-07 18:13:38,344 - aiogram.event - INFO - Update id=205671016 is handled. Duration 297 ms by bot id=7754142889
+2025-03-07 18:13:43,982 - config.config - INFO - addlink_text_handler: Received text from 1011141225: https://docs.google.com/spreadsheets/d/1cKM5h70pqYvN-SCD6TXkcIVuY-nB82F7/edit?gid=82581363#gid=82581363
+2025-03-07 18:13:43,983 - config.config - INFO - added
+2025-03-07 18:13:44,170 - config.config - INFO - Admin 1011141225 added link for category 'Расписание': https://docs.google.com/spreadsheets/d/1cKM5h70pqYvN-SCD6TXkcIVuY-nB82F7/edit?gid=82581363#gid=82581363
+2025-03-07 18:13:44,171 - aiogram.event - INFO - Update id=205671017 is handled. Duration 186 ms by bot id=7754142889
+2025-03-07 18:13:45,952 - aiogram.event - INFO - Update id=205671018 is handled. Duration 343 ms by bot id=7754142889
+2025-03-07 18:13:52,417 - aiogram.event - INFO - Update id=205671019 is not handled. Duration 0 ms by bot id=7754142889
+2025-03-07 18:13:56,048 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 18:13:56,292 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 18:16:11,240 - config.config - INFO - Bot is starting...
+2025-03-07 18:16:11,241 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 18:16:11,477 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 18:16:13,642 - config.config - INFO - send_document_links: for doc_name 'Расписание', found 1 links: ['https://docs.google.com/spreadsheets/d/1cKM5h70pqYvN-SCD6TXkcIVuY-nB82F7/edit?gid=82581363#gid=82581363']
+2025-03-07 18:16:13,885 - config.config - INFO - User 1011141225 requested document links for 'Расписание'.
+2025-03-07 18:16:13,885 - aiogram.event - INFO - Update id=205671020 is handled. Duration 250 ms by bot id=7754142889
+2025-03-07 18:16:20,336 - config.config - INFO - send_document_links: for doc_name 'Изменения в расписании', found 1 links: ['https://vk.com/away.php?to=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1ZwMNV3X_Kb0BjO-hQui0j5R8mnz5PYkK%2Fedit%3Fusp%3Ddrive_link%26ouid%3D114345245609550489176%26rtpof%3Dtrue%26sd%3Dtrue&utf=1']
+2025-03-07 18:16:20,453 - config.config - INFO - User 1011141225 requested document links for 'Изменения в расписании'.
+2025-03-07 18:16:20,453 - aiogram.event - INFO - Update id=205671021 is handled. Duration 109 ms by bot id=7754142889
+2025-03-07 18:16:28,348 - config.config - INFO - send_document_links: for doc_name 'Посещаемость и питание', found 0 links: []
+2025-03-07 18:16:28,444 - config.config - INFO - User 1011141225 requested document links for 'Посещаемость и питание'.
+2025-03-07 18:16:28,444 - aiogram.event - INFO - Update id=205671022 is handled. Duration 109 ms by bot id=7754142889
+2025-03-07 18:16:29,190 - config.config - INFO - send_document_links: for doc_name 'ФГИС "Моя школа"', found 0 links: []
+2025-03-07 18:16:29,352 - config.config - INFO - User 1011141225 requested document links for 'ФГИС "Моя школа"'.
+2025-03-07 18:16:29,352 - aiogram.event - INFO - Update id=205671023 is handled. Duration 172 ms by bot id=7754142889
+2025-03-07 18:16:37,975 - aiogram.event - INFO - Update id=205671024 is handled. Duration 108 ms by bot id=7754142889
+2025-03-07 18:16:42,759 - aiogram.event - INFO - Update id=205671025 is handled. Duration 187 ms by bot id=7754142889
+2025-03-07 18:16:43,896 - aiogram.event - INFO - Update id=205671026 is handled. Duration 250 ms by bot id=7754142889
+2025-03-07 18:16:47,506 - config.config - INFO - send_document_links: for doc_name 'Изменения в расписании', found 0 links: []
+2025-03-07 18:16:47,591 - config.config - INFO - User 1011141225 requested document links for 'Изменения в расписании'.
+2025-03-07 18:16:47,592 - aiogram.event - INFO - Update id=205671027 is handled. Duration 92 ms by bot id=7754142889
+2025-03-07 18:16:57,635 - config.config - INFO - User 1011141225 called /start
+2025-03-07 18:16:57,766 - aiogram.event - INFO - Update id=205671028 is handled. Duration 125 ms by bot id=7754142889
+2025-03-07 18:17:17,417 - config.config - INFO - User 5586764924 called /start
+2025-03-07 18:17:17,525 - aiogram.event - INFO - Update id=205671029 is handled. Duration 110 ms by bot id=7754142889
+2025-03-07 18:17:20,169 - config.config - INFO - send_document_links: for doc_name 'Расписание', found 1 links: ['https://docs.google.com/spreadsheets/d/1cKM5h70pqYvN-SCD6TXkcIVuY-nB82F7/edit?gid=82581363#gid=82581363']
+2025-03-07 18:17:20,281 - config.config - INFO - User 5586764924 requested document links for 'Расписание'.
+2025-03-07 18:17:20,281 - aiogram.event - INFO - Update id=205671030 is handled. Duration 110 ms by bot id=7754142889
+2025-03-07 18:17:32,646 - config.config - INFO - User 5586764924 called /start
+2025-03-07 18:17:32,963 - aiogram.event - INFO - Update id=205671031 is not handled. Duration 311 ms by bot id=7754142889
+2025-03-07 18:17:32,963 - aiogram.event - ERROR - Cause exception while process update id=205671031 by bot id=7754142889
+TelegramBadRequest: Telegram server says - Bad Request: chat not found
+Traceback (most recent call last):
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\Shkolobot\bot\telegram_bot.py", line 108, in cmd_start
+    await bot.send_message(
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 2972, in send_message
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 498, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: chat not found
+2025-03-07 18:17:35,498 - config.config - INFO - User 5586764924 called /start
+2025-03-07 18:17:35,621 - aiogram.event - INFO - Update id=205671032 is handled. Duration 125 ms by bot id=7754142889
+2025-03-07 18:17:36,771 - config.config - INFO - User 5586764924 called /start
+2025-03-07 18:17:36,876 - aiogram.event - INFO - Update id=205671033 is handled. Duration 93 ms by bot id=7754142889
+2025-03-07 18:17:38,024 - config.config - INFO - User 5586764924 called /start
+2025-03-07 18:17:38,110 - aiogram.event - INFO - Update id=205671034 is handled. Duration 77 ms by bot id=7754142889
+2025-03-07 18:17:40,521 - config.config - INFO - User 5586764924 declined via inline button.
+2025-03-07 18:17:40,521 - aiogram.event - INFO - Update id=205671035 is handled. Duration 266 ms by bot id=7754142889
+2025-03-07 18:17:41,926 - config.config - INFO - User 5586764924 called /start
+2025-03-07 18:17:42,220 - aiogram.event - INFO - Update id=205671036 is not handled. Duration 297 ms by bot id=7754142889
+2025-03-07 18:17:42,220 - aiogram.event - ERROR - Cause exception while process update id=205671036 by bot id=7754142889
+TelegramBadRequest: Telegram server says - Bad Request: chat not found
+Traceback (most recent call last):
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\Shkolobot\bot\telegram_bot.py", line 108, in cmd_start
+    await bot.send_message(
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 2972, in send_message
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 498, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dille\OneDrive\Рабочий стол\school_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: chat not found
+2025-03-07 18:17:43,214 - config.config - INFO - User 5586764924 approved via inline button.
+2025-03-07 18:17:43,215 - aiogram.event - INFO - Update id=205671037 is handled. Duration 358 ms by bot id=7754142889
+2025-03-07 18:17:48,034 - config.config - INFO - send_document_links: for doc_name 'Расписание', found 1 links: ['https://docs.google.com/spreadsheets/d/1cKM5h70pqYvN-SCD6TXkcIVuY-nB82F7/edit?gid=82581363#gid=82581363']
+2025-03-07 18:17:48,147 - config.config - INFO - User 5586764924 requested document links for 'Расписание'.
+2025-03-07 18:17:48,147 - aiogram.event - INFO - Update id=205671038 is handled. Duration 125 ms by bot id=7754142889
+2025-03-07 18:17:48,884 - config.config - INFO - send_document_links: for doc_name 'Изменения в расписании', found 0 links: []
+2025-03-07 18:17:49,025 - config.config - INFO - User 5586764924 requested document links for 'Изменения в расписании'.
+2025-03-07 18:17:49,025 - aiogram.event - INFO - Update id=205671039 is handled. Duration 141 ms by bot id=7754142889
+2025-03-07 18:17:49,760 - config.config - INFO - send_document_links: for doc_name 'Посещаемость и питание', found 0 links: []
+2025-03-07 18:17:49,897 - config.config - INFO - User 5586764924 requested document links for 'Посещаемость и питание'.
+2025-03-07 18:17:49,897 - aiogram.event - INFO - Update id=205671040 is handled. Duration 141 ms by bot id=7754142889
+2025-03-07 18:18:04,782 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 18:18:05,049 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 18:18:40,072 - config.config - INFO - Bot is starting...
+2025-03-07 18:18:40,073 - aiogram.dispatcher - INFO - Start polling
+2025-03-07 18:18:40,299 - aiogram.dispatcher - INFO - Run polling for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'
+2025-03-07 18:18:40,620 - aiogram.event - INFO - Update id=205671042 is handled. Duration 234 ms by bot id=7754142889
+2025-03-07 18:18:40,631 - aiogram.event - INFO - Update id=205671041 is handled. Duration 250 ms by bot id=7754142889
+2025-03-07 18:18:44,410 - aiogram.event - INFO - Update id=205671043 is handled. Duration 781 ms by bot id=7754142889
+2025-03-07 18:18:48,335 - aiogram.event - INFO - Update id=205671044 is handled. Duration 172 ms by bot id=7754142889
+2025-03-07 18:18:51,064 - config.config - INFO - addlink_text_handler: Received text from 1011141225: https://docs.google.com/spreadsheets/d/1ZwMNV3X_Kb0BjO-hQui0j5R8mnz5PYkK/edit?gid=2093818809#gid=2093818809
+2025-03-07 18:18:51,065 - config.config - INFO - added
+2025-03-07 18:18:51,156 - config.config - INFO - Admin 1011141225 added link for category 'Изменения в расписании': https://docs.google.com/spreadsheets/d/1ZwMNV3X_Kb0BjO-hQui0j5R8mnz5PYkK/edit?gid=2093818809#gid=2093818809
+2025-03-07 18:18:51,156 - aiogram.event - INFO - Update id=205671045 is handled. Duration 94 ms by bot id=7754142889
+2025-03-07 18:18:52,958 - aiogram.event - INFO - Update id=205671046 is handled. Duration 671 ms by bot id=7754142889
+2025-03-07 18:18:56,679 - aiogram.event - INFO - Update id=205671047 is handled. Duration 108 ms by bot id=7754142889
+2025-03-07 18:19:01,061 - aiogram.event - INFO - Update id=205671048 is handled. Duration 171 ms by bot id=7754142889
+2025-03-07 18:19:11,526 - config.config - INFO - addlink_text_handler: Received text from 1011141225: https://www.avsu.ru/loginteacher/
+2025-03-07 18:19:11,528 - config.config - INFO - added
+2025-03-07 18:19:11,633 - config.config - INFO - Admin 1011141225 added link for category 'Посещаемость и питание': https://www.avsu.ru/loginteacher/
+2025-03-07 18:19:11,633 - aiogram.event - INFO - Update id=205671049 is handled. Duration 108 ms by bot id=7754142889
+2025-03-07 18:19:13,445 - aiogram.event - INFO - Update id=205671050 is handled. Duration 734 ms by bot id=7754142889
+2025-03-07 18:19:17,239 - aiogram.event - INFO - Update id=205671051 is handled. Duration 188 ms by bot id=7754142889
+2025-03-07 18:19:23,585 - aiogram.event - INFO - Update id=205671052 is handled. Duration 186 ms by bot id=7754142889
+2025-03-07 18:19:53,172 - config.config - INFO - addlink_text_handler: Received text from 1011141225: https://sgo.volganet.ru/?at=32732638765907572098060333
+2025-03-07 18:19:53,174 - config.config - INFO - added
+2025-03-07 18:19:53,276 - config.config - INFO - Admin 1011141225 added link for category 'ФГИС "Моя школа"': https://sgo.volganet.ru/?at=32732638765907572098060333
+2025-03-07 18:19:53,276 - aiogram.event - INFO - Update id=205671053 is handled. Duration 110 ms by bot id=7754142889
+2025-03-07 18:19:58,273 - aiogram.event - INFO - Update id=205671054 is handled. Duration 281 ms by bot id=7754142889
+2025-03-07 18:20:02,814 - aiogram.event - INFO - Update id=205671055 is handled. Duration 780 ms by bot id=7754142889
+2025-03-07 18:20:11,466 - config.config - INFO - send_document_links: for doc_name 'Расписание', found 1 links: ['https://docs.google.com/spreadsheets/d/1cKM5h70pqYvN-SCD6TXkcIVuY-nB82F7/edit?gid=82581363#gid=82581363']
+2025-03-07 18:20:11,574 - config.config - INFO - User 1011141225 requested document links for 'Расписание'.
+2025-03-07 18:20:11,574 - aiogram.event - INFO - Update id=205671056 is handled. Duration 109 ms by bot id=7754142889
+2025-03-07 18:20:12,545 - config.config - INFO - send_document_links: for doc_name 'Изменения в расписании', found 1 links: ['https://docs.google.com/spreadsheets/d/1ZwMNV3X_Kb0BjO-hQui0j5R8mnz5PYkK/edit?gid=2093818809#gid=2093818809']
+2025-03-07 18:20:12,651 - config.config - INFO - User 1011141225 requested document links for 'Изменения в расписании'.
+2025-03-07 18:20:12,651 - aiogram.event - INFO - Update id=205671057 is handled. Duration 110 ms by bot id=7754142889
+2025-03-07 18:20:14,429 - config.config - INFO - send_document_links: for doc_name 'Посещаемость и питание', found 1 links: ['https://www.avsu.ru/loginteacher/']
+2025-03-07 18:20:14,534 - config.config - INFO - User 1011141225 requested document links for 'Посещаемость и питание'.
+2025-03-07 18:20:14,535 - aiogram.event - INFO - Update id=205671058 is handled. Duration 110 ms by bot id=7754142889
+2025-03-07 18:20:18,590 - config.config - INFO - send_document_links: for doc_name 'ФГИС "Моя школа"', found 1 links: ['https://sgo.volganet.ru/?at=32732638765907572098060333']
+2025-03-07 18:20:18,684 - config.config - INFO - User 1011141225 requested document links for 'ФГИС "Моя школа"'.
+2025-03-07 18:20:18,684 - aiogram.event - INFO - Update id=205671059 is handled. Duration 93 ms by bot id=7754142889
+2025-03-07 18:20:26,754 - aiogram.dispatcher - INFO - Polling stopped
+2025-03-07 18:20:27,005 - aiogram.dispatcher - INFO - Polling stopped for bot @shkolo_teacher_bot id=7754142889 - 'ШколоБот'

@@ -137,8 +137,10 @@ def get_document_link(name: str):
     cursor.execute('SELECT url FROM document_links WHERE name = ?', (name,))
     row = cursor.fetchone()
     conn.close()
+
     if row:
         return row["url"]
+
     return None
 
 def get_document_links(name: str):
@@ -150,6 +152,7 @@ def get_document_links(name: str):
     cursor.execute('SELECT * FROM document_links WHERE name = ?', (name,))
     rows = cursor.fetchall()
     conn.close()
+
     return rows
 
 # ------------------ Функции для работы с администраторами ------------------

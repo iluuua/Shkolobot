@@ -1,5 +1,5 @@
 import asyncio
-from aiogram import Bot, Dispatcher, F
+from aiogram import Bot, Dispatcher
 from aiogram.filters import Command, CommandStart
 from aiogram.types import (
     Message, ReplyKeyboardMarkup, KeyboardButton,
@@ -56,6 +56,7 @@ def addlink_category_keyboard() -> InlineKeyboardMarkup:
     for key, cat in CATEGORY_MAPPING.items():
         buttons.append(InlineKeyboardButton(text=cat, callback_data=f"addlink_cat_{key}"))
     buttons.append(InlineKeyboardButton(text="Применить", callback_data="addlink_apply"))
+    # Располагаем кнопки в столбик
     keyboard = InlineKeyboardMarkup(inline_keyboard=[[btn] for btn in buttons])
     return keyboard
 
@@ -165,6 +166,8 @@ async def addlink_callback_handler(callback: CallbackQuery):
         await callback.answer(f"Выбрана категория: {category}", show_alert=True)
         await callback.bot.send_message(admin_id, f"Пришлите ссылку для категории '{category}', или нажмите 'Применить' для завершения.")
     elif data == "addlink_apply":
+        # Можно добавить небольшую задержку, чтобы убедиться, что текст ссылки обработан до сброса состояния
+        await asyncio.sleep(0.5)
         if admin_id in add_link_state:
             del add_link_state[admin_id]
         await callback.answer("Добавление ссылок завершено.", show_alert=True)
@@ -172,15 +175,18 @@ async def addlink_callback_handler(callback: CallbackQuery):
 
 async def addlink_text_handler(message: Message):
     admin_id = message.from_user.id
-    logger.info(f"Received addlink text from {admin_id}: {message.text}")
+    logger.info(f"addlink_text_handler: Received text from {admin_id}: {message.text}")
     if admin_id in add_link_state and add_link_state[admin_id]:
         category = add_link_state[admin_id]
         url = message.text.strip()
         add_document_link(category, url, description=None)
-        await message.answer(f"Ссылка для категории '{category}' добавлена.\nПришлите следующую ссылку или нажмите 'Применить' для завершения.")
+        await message.answer(
+            f"Ссылка для категории '{category}' добавлена.\nПришлите следующую ссылку или нажмите 'Применить' для завершения."
+        )
         logger.info(f"Admin {admin_id} added link for category '{category}': {url}")
     else:
         logger.info(f"Admin {admin_id} attempted to add link, but no category selected.")
+
 # ------------------ Логика удаления ссылок ------------------
 async def dellink_command(message: Message, bot: Bot):
     user_id = message.from_user.id
@@ -229,6 +235,7 @@ async def send_document_links(message: Message, doc_name: str):
         await message.answer("Вы не зарегистрированы. Обратитесь к администратору.")
         return
     links = get_document_links(doc_name)
+    logger.info(f"send_document_links: for doc_name '{doc_name}', found {len(links)} links: {[link['url'] for link in links]}")
     if links:
         text = f"Ссылки для \"{doc_name}\":\n"
         for link in links:
@@ -314,26 +321,37 @@ async def document_link_handler(message: Message):
 bot = Bot(token=configs["BOT_TOKEN"])
 dp = Dispatcher()
 
+# Команда /start
 dp.message.register(cmd_start, CommandStart())
-dp.message.register(schedule_handler, F.text("Расписание"))
-dp.message.register(changes_handler, F.text("Изменения в расписании"))
-dp.message.register(attendance_handler, F.text("Посещаемость и питание"))
-dp.message.register(fgis_handler, F.text('ФГИС "Моя школа"'))
+
+# Обработчики главного меню – теперь с лямбда-фильтрами для точного соответствия текста
+dp.message.register(schedule_handler, lambda message: message.text.strip().lower() == "расписание")
+dp.message.register(changes_handler, lambda message: message.text.strip().lower() == "изменения в расписании")
+dp.message.register(attendance_handler, lambda message: message.text.strip().lower() == "посещаемость и питание")
+dp.message.register(fgis_handler, lambda message: message.text.strip().lower() == 'фгис "моя школа"'.lower())
+
 dp.message.register(approve_command, Command("approve"))
 dp.message.register(deny_command, Command("deny"))
 dp.message.register(addlink_command, Command("addlink"))
 dp.message.register(dellink_command, Command("dellink"))
+
 dp.callback_query.register(
     registration_callback_handler,
-    F.data.startswith("reg_accept_") | F.data.startswith("reg_decline_")
+    lambda callback: callback.data.startswith("reg_accept_") or callback.data.startswith("reg_decline_")
 )
 dp.callback_query.register(
     addlink_callback_handler,
-    F.data.startswith("addlink_")
+    lambda callback: callback.data.startswith("addlink_")
 )
 dp.callback_query.register(
     dellink_callback_handler,
-    F.data.startswith("dellink_")
+    lambda callback: callback.data.startswith("dellink_")
 )
-dp.message.register(addlink_text_handler, F.text().filter(lambda message: message.from_user.id in add_link_state))
-dp.message.register(document_link_handler, F.text().exclude(lambda text: text in ["Расписание", "Изменения в расписании", "Посещаемость и питание", 'ФГИС "Моя школа"']))
+
+# Обработчик для текстовых сообщений при добавлении ссылки
+dp.message.register(addlink_text_handler, lambda message: hasattr(message, "from_user") and message.from_user.id in add_link_state)
+
+# Общий обработчик для остальных текстовых сообщений (если текст не совпадает с главными пунктами)
+dp.message.register(document_link_handler, lambda message: message.text.strip() not in [
+    "Расписание", "Изменения в расписании", "Посещаемость и питание", 'ФГИС "Моя школа"'
+])
